@@ -2,9 +2,27 @@ import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
-const SITE_URL =
-  process.env.SITE_URL ?? 'https://kristaps.me';
-const SITE_BASE_URL = process.env.SITE_BASE_URL ?? '/my-website/';
+const SITE_URL_INPUT =
+  process.env.SITE_URL ?? 'https://kristaps.me/my-website/';
+
+// Docusaurus requires `url` to be an origin only (no sub-path). If the user
+// provides a full path in SITE_URL, we strip it and use the pathname for
+// baseUrl instead.
+let SITE_URL_ORIGIN = 'https://kristaps.me';
+let SITE_BASE_URL_INFERRED = '/';
+try {
+  const u = new URL(SITE_URL_INPUT);
+  SITE_URL_ORIGIN = u.origin;
+  const pathname = u.pathname || '/';
+  SITE_BASE_URL_INFERRED = pathname.endsWith('/') ? pathname : `${pathname}/`;
+} catch {
+  // Fallback to defaults if SITE_URL_INPUT isn't a valid URL.
+  SITE_URL_ORIGIN = 'https://kristaps.me';
+  SITE_BASE_URL_INFERRED = '/my-website/';
+}
+
+const SITE_URL = SITE_URL_ORIGIN;
+const SITE_BASE_URL = process.env.SITE_BASE_URL ?? SITE_BASE_URL_INFERRED;
 const MCP_SERVER_NAME = process.env.MCP_SERVER_NAME ?? 'my-docs';
 const MCP_SERVER_VERSION = process.env.MCP_SERVER_VERSION ?? '1.0.0';
 
