@@ -1,0 +1,10 @@
+{
+  "version": "1.0.0",
+  "buildTime": "2026-03-20T16:14:51.410Z",
+  "docCount": 26,
+  "serverName": "my-docs",
+  "baseUrl": "https://fassko.github.io",
+  "indexers": [
+    "flexsearch"
+  ]
+}
