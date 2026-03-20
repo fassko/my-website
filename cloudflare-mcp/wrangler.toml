@@ -1,0 +1,12 @@
+name = "my-website-mcp"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+# These are usually injected at deploy time from CI, but defaults are
+# provided so the worker can still be deployed manually.
+[vars]
+DOCS_BASE_URL = "https://your-docusaurus-site.example.com"
+MCP_SERVER_NAME = "my-docs"
+MCP_SERVER_VERSION = "1.0.0"
+
