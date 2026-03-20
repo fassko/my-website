@@ -3,8 +3,8 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const SITE_URL =
-  process.env.SITE_URL ?? 'https://your-docusaurus-site.example.com';
-const SITE_BASE_URL = process.env.SITE_BASE_URL ?? '/';
+  process.env.SITE_URL ?? 'https://kristaps.me';
+const SITE_BASE_URL = process.env.SITE_BASE_URL ?? '/my-website/';
 const MCP_SERVER_NAME = process.env.MCP_SERVER_NAME ?? 'my-docs';
 const MCP_SERVER_VERSION = process.env.MCP_SERVER_VERSION ?? '1.0.0';
 
