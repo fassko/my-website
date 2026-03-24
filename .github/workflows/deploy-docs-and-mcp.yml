@@ -55,7 +55,7 @@ jobs:
         run: >
           npx wrangler deploy
           --config cloudflare-mcp/wrangler.toml
-          --var DOCS_BASE_URL=${{ env.SITE_URL }}
+          --var DOCS_BASE_URL=${{ env.SITE_URL }}${{ env.SITE_BASE_URL }}
           --var MCP_SERVER_NAME=${{ env.MCP_SERVER_NAME }}
           --var MCP_SERVER_VERSION=${{ env.MCP_SERVER_VERSION }}
         env:

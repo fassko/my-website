@@ -81,12 +81,9 @@ const config: Config = {
     [
       'docusaurus-plugin-mcp-server',
       {
-        // Outputs artifacts into `build/mcp/` during `docusaurus build`.
-        outputDir: 'mcp',
-        excludeRoutes: ['/404*', '/search*'],
         server: {
-          name: MCP_SERVER_NAME,
-          version: MCP_SERVER_VERSION,
+          name: "my-website",
+          version: "1.0.0",
         },
       },
     ],
